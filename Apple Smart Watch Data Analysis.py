@@ -11,10 +11,8 @@ Original file is located at
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
+from scipy.stats import pearsonr
 
 # Load the dataset
 df = pd.read_csv('/content/sample_data/aw_fb_data.csv')
@@ -52,8 +50,10 @@ plt.ylabel('Calories Burned')
 plt.show()
 
 # Pearson Correlation Matrix
-numeric_df = df.select_dtypes(include=['number'])
-corr_matrix = numeric_df.corr()
+list1 = data["Steps"]
+list2 = data["heart_rate"]
+corr, _ = pearsonr(list1, list2)
+print(f"Pearson correlation between Stpes and heart rate: {corr}")
 
 # Plot the correlation heatmap
 plt.figure(figsize=(10, 8))
