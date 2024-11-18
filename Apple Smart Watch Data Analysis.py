@@ -77,10 +77,6 @@ model.fit(X_train, y_train)
 # Predict on test data
 y_pred = model.predict(X_test)
 
-# Calculate mean squared error (MSE)
-mse = mean_squared_error(y_test, y_pred)
-print(f'Mean Squared Error: {mse}')
-
 # Visualize the actual vs predicted values
 plt.figure(figsize=(8, 6))
 plt.scatter(y_test, y_pred, color='blue')
